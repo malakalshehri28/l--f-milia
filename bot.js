@@ -517,7 +517,7 @@ let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
 let BcList = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setAuthor(`محتوى الرساله ${args}`)
-.setDescription(`broadcast Embed 📝\nbroadcast not Embed ✏️\nYou have 1 minute check`)
+.setDescription(`broadcast Embed 📝\nbroadcast not Embed ✏\nYou have 1 minute check`)
 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
 msg.react('📝')
 .then(() => msg.react('✏'))
