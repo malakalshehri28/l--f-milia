@@ -74,49 +74,50 @@ client.on('guildMemberAdd', member=> {
 
 
 
+
 client.on("message", message => {
     var args = message.content.split(' ').slice(1);
     var msg = message.content.toLowerCase();
     if( !message.guild ) return;
-    if( !msg.startsWith( prefix + '-role' ) ) return;
+    if( !msg.startsWith( prefix + 'role-' ) ) return;
     if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
-    if( msg.toLowerCase().startsWith( prefix + '-role' ) ){
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
+    if( msg.toLowerCase().startsWith( prefix + 'role-' ) ){
+        if( !args[0] ) return message.reply( ':no_entry: **I can't find this member**' );
+        if( !args[1] ) return message.reply( ':no_entry: ** Please specify one role name **' );
         var role = msg.split(' ').slice(2).join(" ").toLowerCase();
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
+        if( !role1 ) return message.reply( ':no_entry: ** Please specify one role name **' );if( message.mentions.members.first() ){
             message.mentions.members.first().removeRole( role1 );
-            return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
+            return message.reply(**:white_check_mark: Delete roles for all, [' +role1.name+' ]**');
         }
         if( args[0].toLowerCase() == "all" ){
             message.guild.members.forEach(m=>m.removeRole( role1 ))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Delete roles all**');
         } else if( args[0].toLowerCase() == "bots" ){
             message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البوتات رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Delete roles bots**');
         } else if( args[0].toLowerCase() == "humans" ){
             message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Delete roles humans**');
         }  
     } else {
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
+        if( !args[0] ) return message.reply( ':no_entry: **I can't find this member**' );
+        if( !args[1] ) return message.reply( ':no_entry: ** Please specify one role name **' );
         var role = msg.split(' ').slice(2).join(" ").toLowerCase();
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
+        if( !role1 ) return message.reply( ':no_entry: ** Please specify one role name **' );if( message.mentions.members.first() ){
             message.mentions.members.first().addRole( role1 );
-            return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
+            return message.reply('**:white_check_mark: Changed roles for ['+args[0]+'], [' +role1.name+' ]**');
         }
         if( args[0].toLowerCase() == "all" ){
             message.guild.members.forEach(m=>m.addRole( role1 ))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Changing roles all**');
         } else if( args[0].toLowerCase() == "bots" ){
             message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Changing roles bots**');
         } else if( args[0].toLowerCase() == "humans" ){
             message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Changing roles humans**');
         }
     }
 });
@@ -128,45 +129,47 @@ client.on("message", message => {
     if( !msg.startsWith( prefix + 'role' ) ) return;
     if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
     if( msg.toLowerCase().startsWith( prefix + 'role' ) ){
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطاء الىه الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطاءها الى الشخص**' );
+        if( !args[0] ) return message.reply( ':no_entry: **I can't find this member**' );
+        if( !args[1] ) return message.reply( ':no_entry: ** Please specify one role name **' );
         var role = msg.split(' ').slice(2).join(" ").toLowerCase();
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطاءها الى الشخص**' );if( message.mentions.members.first() ){
+        if( !role1 ) return message.reply( ':no_entry: ** Please specify one role name **' );if( message.mentions.members.first() ){
             message.mentions.members.first().addRole( role1 );
-            return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء الى **');
+            return message.reply('**:white_check_mark: Changed roles for ['+args[0]+'], [' +role1.name+' ]**');
         }
         if( args[0].toLowerCase() == "all" ){
             message.guild.members.forEach(m=>m.addRole( role1 ))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى الكل رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Changing roles all**');
         } else if( args[0].toLowerCase() == "bots" ){
             message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى البوتات رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Changing roles bots**');
         } else if( args[0].toLowerCase() == "humans" ){
             message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى البشريين رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Changing roles humans**');
         }  
     } else {
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
+        if( !args[0] ) return message.reply( ':no_entry: **I can't find this member**' );
+        if( !args[1] ) return message.reply( ':no_entry: ** Please specify one role name **' );
         var role = msg.split(' ').slice(2).join(" ").toLowerCase();
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
+        if( !role1 ) return message.reply( ':no_entry: ** Please specify one role name **' );if( message.mentions.members.first() ){
             message.mentions.members.first().addRole( role1 );
-            return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
+            return message.reply('**:white_check_mark: Changed roles for ['+args[0]+'], [' +role1.name+' ]**');
         }
         if( args[0].toLowerCase() == "all" ){
             message.guild.members.forEach(m=>m.addRole( role1 ))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Changing roles all**');
         } else if( args[0].toLowerCase() == "bots" ){
             message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Changing roles bots**');
         } else if( args[0].toLowerCase() == "humans" ){
             message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-            return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
+            return  message.reply('**:white_check_mark: [ '+role1.name+' ] Changing roles humans**');
         }
     }
 });
+
+
 
 
 
