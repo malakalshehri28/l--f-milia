@@ -306,7 +306,7 @@ if (message.member.voiceChannel != null) {
 var embed = new Discord.RichEmbed()
  .setTitle("Succes!")
  .setColor("#000000")
- .setDescription(` <@${usermentioned}> الى الروم الصوتي الخاص بك:white_check_mark: `)
+ .setDescription(`:white_check_mark: **moved to room** <@${usermentioned}>`)
 var embed = new Discord.RichEmbed()
 .setDescription(`:white_check_mark: **moved to room** <@${usermentioned}>`)
  .setColor("#000000")
@@ -511,13 +511,13 @@ client.on('message', message => {
 client.on('message', message => {
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'bc')) {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+if(!message.channel.guild) return message.channel.send('**please this commands server**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send(':no_entry: | You dont have **ADMINISTRATOR** Permission!' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
 let BcList = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setAuthor(`محتوى الرساله ${args}`)
-.setDescription(`broadcast Embed 📝\nbroadcast not Embed \nYou have 1 minute check`)
+.setDescription(`broadcast Embed 📝\nbroadcast not Embed ✏️\nYou have 1 minute check`)
 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
 msg.react('📝')
 .then(() => msg.react('✏'))
@@ -530,7 +530,7 @@ let EmbedBc = msg.createReactionCollector(EmbedBcFilter, { time: 60000 });
 let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
  
 EmbedBc.on("collect", r => {
-message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
+message.channel.send(`:white_check_mark: Done`).then(m => m.delete(5000));
 message.guild.members.forEach(m => {
 var bc = new
 Discord.RichEmbed()
@@ -545,7 +545,7 @@ msg.delete();
 })
 })
 NormalBc.on("collect", r => {
-  message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
+  message.channel.send(`:white_check_mark: Done`).then(m => m.delete(5000));
 message.guild.members.forEach(m => {
 m.send(args);
 msg.delete();
