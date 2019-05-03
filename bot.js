@@ -297,7 +297,7 @@ if(!message.channel.guild) return;
 if(message.content.startsWith("اسحب")) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
  if (message.mentions.users.size === 0) {
- return message.channel.send("**لاستخدام الأمر اكتب هاذا الأمر : اسحب [منشن]**")
+ return message.channel.send("**[mentions] اسحب**")
 }
 if (message.member.voiceChannel != null) {
  if (message.mentions.members.first().voiceChannel != null) {
@@ -517,7 +517,7 @@ let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
 let BcList = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setAuthor(`محتوى الرساله ${args}`)
-.setDescription(`برودكاست بـ امبد 📝\nبرودكاست بدون امبد✏ \nلديك دقيقه للأختيار قبل الغاء البرودكاست`)
+.setDescription(`broadcast Embed 📝\nbroadcast not Embed \nYou have 1 minute check`)
 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
 msg.react('📝')
 .then(() => msg.react('✏'))
