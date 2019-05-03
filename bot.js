@@ -316,7 +316,7 @@ message.guild.members.get(usermentioned).send(embed)
 message.channel.send(":no_entry: ** Member not in voice channel **")
 }
 } else {
- message.channel.send(":no_entry:  ** Member not in voice channel **")
+ message.channel.send(":no_entry: ** Member not in voice channel **")
 }
 } else {
 message.react("❌")
