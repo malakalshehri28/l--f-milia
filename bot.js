@@ -74,7 +74,6 @@ client.on('guildMemberAdd', member=> {
 
 
 
-
 client.on("message", message => {
     var args = message.content.split(' ').slice(1);
     var msg = message.content.toLowerCase();
@@ -243,7 +242,6 @@ message.author.send(`**مدة الرابط : يوم
 
 
 
-
 client.on('message', message => {
 if(!message.channel.guild) return;
 if(message.content.startsWith("اسحب")) {
@@ -273,7 +271,6 @@ message.channel.send("لا تستطيع سحب "+ message.mentions.members.first
 } else {
 message.react("❌")
  }}});
-
 
 
 
@@ -461,7 +458,6 @@ client.on('message', message => {
 
 
 
-
 client.on('message', message => {
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'bc')) {
@@ -508,11 +504,6 @@ msg.delete();
 })
 }
 });
-
-
-
-
-
 
 
 
