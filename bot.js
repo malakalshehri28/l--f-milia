@@ -185,7 +185,7 @@ client.on("message", message => {
       message.channel.sendMessage("", {embed: {
         title: "",
         color: 0x06DF00,
-        description: " تم مسح الرسائل بنجاح ",
+        description: ":white_check_mark: Done Delete Message",
         footer: {
           text: "la-familia" 
         }
