@@ -9,7 +9,8 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : AJ ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Lá Famillia.`,"http://twitch.tv//idk")
+client.user.setstatus("Idle");
+client.user.setGame("Lá Famillia.");
 });
 
 
@@ -36,7 +37,7 @@ client.on('guildMemberAdd', member => {
     const inviter = client.users.get(invite.inviter.id);
     const logChannel = member.guild.channels.find(channel => channel.name === "lá-fàmilia");
     logChannel.send(`**Welcome To server __ Lá Famillia__
-invite by: <@${inviter.id}>`);
+invite by:** <@${inviter.id}>`);
   });
 });
 
