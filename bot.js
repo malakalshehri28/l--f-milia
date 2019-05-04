@@ -9,7 +9,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : AJ ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setstatus("Idle");
+client.user.setstatus("idle");
 client.user.setGame("Lá Famillia.");
 });
 
