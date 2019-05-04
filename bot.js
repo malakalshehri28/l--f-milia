@@ -69,7 +69,7 @@ client.on('guildMemberAdd', member => {
 
 
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","user"));
+    member.addRole(member.guild.roles.find("name","Famillie."));
     });
 
 
