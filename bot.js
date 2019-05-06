@@ -42,7 +42,6 @@ invite by:** <@${inviter.id}>`);
 
 
 
-
 client.on('guildMemberAdd', member => {
 
     const channel = member.guild.channels.find('name', 'lá-fàmilia');
@@ -67,7 +66,6 @@ client.on('guildMemberAdd', member => {
 
 
 
-
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","Famillie."));
     });
@@ -82,11 +80,11 @@ client.on("message", message => {
     if( !msg.startsWith( prefix + 'role-' ) ) return;
     if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
     if( msg.toLowerCase().startsWith( prefix + 'role-' ) ){
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
+        if( !args[0] ) return message.reply( '** يرجى وضع الشخص المراد سحب منه الرتبة**' );
+        if( !args[1] ) return message.reply( '** يرجى وضع الرتبة المراد سحبها من الشخص**' );
         var role = msg.split(' ').slice(2).join(" ").toLowerCase();
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
+        if( !role1 ) return message.reply( '** يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
             message.mentions.members.first().removeRole( role1 );
             return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
         }
@@ -101,11 +99,11 @@ client.on("message", message => {
             return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
         }  
     } else {
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
+        if( !args[0] ) return message.reply( '** يرجى وضع الشخص المراد اعطائها الرتبة**' );
+        if( !args[1] ) return message.reply( '** يرجى وضع الرتبة المراد اعطائها للشخص**' );
         var role = msg.split(' ').slice(2).join(" ").toLowerCase();
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
+        if( !role1 ) return message.reply( '** يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
             message.mentions.members.first().addRole( role1 );
             return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
         }
@@ -129,11 +127,11 @@ client.on("message", message => {
     if( !msg.startsWith( prefix + 'role' ) ) return;
     if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
     if( msg.toLowerCase().startsWith( prefix + 'role' ) ){
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطاء الىه الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطاءها الى الشخص**' );
+        if( !args[0] ) return message.reply( '** يرجى وضع الشخص المراد اعطاء الىه الرتبة**' );
+        if( !args[1] ) return message.reply( '** يرجى وضع الرتبة المراد اعطاءها الى الشخص**' );
         var role = msg.split(' ').slice(2).join(" ").toLowerCase();
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطاءها الى الشخص**' );if( message.mentions.members.first() ){
+        if( !role1 ) return message.reply( '** يرجى وضع الرتبة المراد اعطاءها الى الشخص**' );if( message.mentions.members.first() ){
             message.mentions.members.first().addRole( role1 );
             return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء الى **');
         }
@@ -148,11 +146,11 @@ client.on("message", message => {
             return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى البشريين رتبة**');
         }  
     } else {
-        if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
-        if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
+        if( !args[0] ) return message.reply( '** يرجى وضع الشخص المراد اعطائها الرتبة**' );
+        if( !args[1] ) return message.reply( '** يرجى وضع الرتبة المراد اعطائها للشخص**' );
         var role = msg.split(' ').slice(2).join(" ").toLowerCase();
         var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-        if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
+        if( !role1 ) return message.reply( '** يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
             message.mentions.members.first().addRole( role1 );
             return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
         }
@@ -168,8 +166,6 @@ client.on("message", message => {
         }
     }
 });
-
-
 
 
 
@@ -194,7 +190,6 @@ client.on("message", message => {
  
      
 });
-
 
 
 
@@ -271,7 +266,6 @@ client.on('message', (message) => {
 
 
 
-
 client.on('message', message => {
     if (message.content.startsWith("رابط")) {
 
@@ -321,7 +315,6 @@ message.channel.send(":no_entry: ** Member not in voice channel **")
 } else {
 message.react("❌")
  }}});
-
 
 
 
