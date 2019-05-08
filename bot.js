@@ -35,8 +35,7 @@ client.on('guildMemberAdd', member => {
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
     const logChannel = member.guild.channels.find(channel => channel.name === "typé");
-    logChannel.send(`**Welcome To server __ Lá Famillia__
-invite by:** <@${inviter.id}>`);
+    logChannel.send(`**By :** <@${inviter.id}>`);
   });
 });
 
